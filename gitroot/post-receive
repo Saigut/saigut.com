@@ -1,0 +1,2 @@
+#!/bin/bash
+GIT_WORK_TREE=/home/saigut/gitroot git reset --hard

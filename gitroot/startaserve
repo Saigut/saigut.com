@@ -1,0 +1,2 @@
+#!/bin/bash
+sbcl --load /home/saigut/gitroot/aserve.lisp
