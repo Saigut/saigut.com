@@ -1,6 +1,6 @@
 apt-get update
 apt-get install git sbcl screen python-pip
-useradd -m -G users,wheel -s /bin/bash saigut
+useradd -m -G users -s /bin/bash saigut
 passwd saigut
 su saigut
 cd ~
@@ -12,15 +12,14 @@ cat > hooks/post-receive
 GIT_WORK_TREE=/home/saigut/gitroot git reset --hard
 chmod +x hooks/post-receive
 local: git push web master
-cp .bashrc ~
+cp ../gitroot/.bashrc ~
 C-c
 C-d
-cp .sbclrc_sb ~/.sbclrc
-cd ~
 pip install shadowsocks
 ssserver -c /home/saigut/gitroot/config.json -d start
 wget https://beta.quicklisp.org/quicklisp.lisp
 sbcl --load quicklisp.lisp
+cp /home/saigut/gitroot/.sbclrc_sb ~/.sbclrc
 sbcl --load /home/saigut/gitroot/aserve.lisp
 screen
 sbcl --load /home/saigut/gitroot/aserve.lisp
